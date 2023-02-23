@@ -1,0 +1,119 @@
+% Styling
+
+
+% DO NOT TOUCH IF YOU DON'T KNOW WHAT YOU'RE DOING!
+
+
+\newcommand{\setupSeminararbeit}{
+    % Titelseite
+    \begin{titlepage}
+        \newgeometry{bottom=0.1cm}
+
+        % Kopfzeile
+        \thispagestyle{empty}
+        \setlength{\voffset}{-2.5cm}
+        \hspace{-1.3cm}
+        \begin{minipage}{0.65\textwidth}
+            \includegraphics[width=50mm]{logo}
+        \end{minipage}
+        \begin{minipage}{0.42\textwidth}
+            \rightline{Abiturjahrgang \examyear}
+        \end{minipage}
+        
+        
+        % Titel
+        \begin{center}
+            \vspace{2.5cm}
+            \fontsize{14}{0}\selectfont
+            \so{\textbf{SEMINARARBEIT}}\\
+            \vspace{1.5cm}
+            \fontsize{11}{16}\selectfont
+            Rahmenthema des Wissenschaftspropädeutischen Seminars:\\
+            \emph{\guidingtheme{}}\\
+            Leitfach: \subject{}\\
+            \vspace{2cm}
+            \fontsize{12}{16}\selectfont
+            Thema der Arbeit:\\
+            \yourthesis{}
+        \end{center}
+        \vspace{3.5cm}
+        \fontsize{11}{18}\selectfont
+        \begin{tabular}{l @{\hspace{1cm}} l}
+            Verfasser/in: & \myname{} \\
+            Kursleiter/in: & \tutor{} \\
+            Abgabetermin: & \deadline{} \\
+        \end{tabular} \\[0.8cm]
+        
+        % Tabelle
+        \begin{adjustwidth}{-0.5cm}{0cm}
+            \begin{tikzpicture}[node distance = 0pt, every node/.style = {draw}]
+                \node (h1) [minimum width = 4cm, minimum height = 0.6cm, font = \bf] {Bewertung};
+                \node (h2) [right = of h1, minimum height = 0.6cm, minimum width = 2cm] {Note};
+                \node (h3) [right = of h2, minimum height = 0.6cm, minimum width = 5cm] {Notenstufe in Worten};
+                \node (h4) [right = of h3, minimum height = 0.6cm, minimum width = 1.8cm] {Punkte};
+                \node (h5) [right = of h4, minimum height = 0.6cm, minimum width = 1cm] {};
+                \node (h6) [right = of h5, minimum height = 0.6cm, minimum width = 1.8cm] {Punkte};
+    
+                \draw[-] (h5.north west) -- (h5.south east);
+    
+                \node (s1) [below = of h1, minimum height = 1.2cm, minimum width = 4cm] {schriftliche Arbeit};
+                \node (s2) [below = of h2, minimum height = 1.2cm, minimum width = 2cm] {};
+                \node (s3) [below = of h3, minimum height = 1.2cm, minimum width = 5cm] {};
+                \node (s4) [below = of h4, minimum height = 1.2cm, minimum width = 1.8cm] {};
+                \node (s5) [below = of h5, minimum height = 1.2cm, minimum width = 1cm] {x3};
+                \node (s6) [below = of h6, minimum height = 1.2cm, minimum width = 1.8cm] {};
+
+                \node (a1) [below = of s1, minimum height = 1.2cm, minimum width = 4cm] {Abschlusspräsentation};
+                \node (s2) [below = of s2, minimum height = 1.2cm, minimum width = 2cm] {};
+                \node (s3) [below = of s3, minimum height = 1.2cm, minimum width = 5cm] {};
+                \node (s4) [below = of s4, minimum height = 1.2cm, minimum width = 1.8cm] {};
+                \node (s5) [below = of s5, minimum height = 1.2cm, minimum width = 1cm] {x1};
+                \node (s6) [below = of s6, minimum height = 1.2cm, minimum width = 1.8cm] {};
+
+                \node (sigma6) [below = of s6, minimum height = 1.2cm, minimum width = 1.8cm] {};
+                \node (sigma5) [left = of sigma6, draw = none] {Summe:};
+
+                \node (total6) [below = of sigma6, minimum height = 1.2cm, minimum width = 1.8cm] {};
+                \node (total5) [left = of total6, draw = none] {Gesamtleistung nach §61 (7) GSO = Summe : \textbf{2} (gerundet):};
+            \end{tikzpicture}
+        \end{adjustwidth}
+        
+        \vspace{1cm}
+
+        % Unterschift
+        \par\noindent\rule{\textwidth}{0.3pt}
+        Datum und Unterschrift der Kursleiterin bzw. des Kursleiters
+    \end{titlepage}
+
+    % Inhaltsverzeichnis
+    \fontsize{11}{24}\selectfont
+    \setcounter{page}{2}
+    \tableofcontents
+    \newpage
+
+    % Schriftartanpassung
+    \fontsize{11}{19}\selectfont
+
+}
+
+
+\newcommand{\insertOfficialDocs}{
+     % Bibliographie
+     \subsection{Quellenangaben}
+     \printbibliography[notkeyword={picture},heading=subbibliography,title={Literaturverzeichnis}]
+     \printbibliography[keyword={picture}, heading=subbibliography, title={Abbildungsverzeichnis}]
+     \newpage
+ 
+ 
+     % Eigenständigkeitserklärung
+     \subsection{Eigenständigkeitserklärung}
+     Hiermit erkläre ich, dass ich die vorliegende Arbeit selbständig und ohne fremde Hilfe verfasst und keine anderen als die angegebenen Hilfsmittel verwendet habe. \\
+     Insbesondere versichere ich, dass ich alle wörtlichen und alle sinngemäßen Übernahmen aus anderen Werken als solche kenntlich gemacht habe. Auch alle genutzten Internetseiten wurden kenntlich gemacht und sind im Verzeichnis der Internetseiten bzw. im Quellenverzeichnis aufgeführt. \\
+     Ich bin darüber belehrt worden, sofern sich – auch zu einem späteren Zeitpunkt – herausstellen sollte, dass die Seminararbeit oder Teile davon nicht selbständig verfasst wurden, die Hinweise zu Zitaten fehlen oder Teile unverändert aus dem Internet übernommen wurden, die Arbeit auch nachträglich mit der Note ungenügend gewertet wird. \\[1cm]
+ 
+     \begin{tabular}{@{}p{10cm}p{5cm}@{}}
+         \location, den \today & \hrulefill \\
+         & \hspace{1.5cm}Unterschrift \\
+     \end{tabular}
+     \newpage
+}
