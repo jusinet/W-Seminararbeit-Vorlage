@@ -27,10 +27,41 @@
 % Hyperref
 \usepackage{hyperref}
 
+% Cite style
+\ifnum \citeStyle=0
+\def\stil{numeric}
+\else
+\def\stil{authoryear-ibid}
+\fi
+
 % BibLaTeX
-\usepackage{biblatex}
+\usepackage[backend=bibtex, style=\stil]{biblatex}
 \addbibresource{./src/quellen.bib}
 \usepackage{csquotes}
 
 % Colors
 \usepackage{xcolor}
+
+% ToC
+\usepackage{tocloft}
+\ifnumequal{\numericalTOC}{1}{
+    \setlength{\cftsecindent}{0pt}% Remove indent for \section
+    \setlength{\cftsubsecindent}{0pt}% Remove indent for \subsection
+    \setlength{\cftsubsubsecindent}{0pt}% Remove indent
+}{
+    \renewcommand{\thesection}{\Alph{section}}
+    \renewcommand{\thesubsection}{\Roman{subsection}}
+    \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+}
+
+% Cite style
+\ifnumequal{\citeStyle}{1}{
+    \ExecuteBibliographyOptions{autocite=footnote}
+}{
+    \ifnumequal{\citeStyle}{2}{
+        
+        \ExecuteBibliographyOptions{autocite=inline}
+    }{
+        \relax
+    }
+}
