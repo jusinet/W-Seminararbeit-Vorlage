@@ -100,18 +100,34 @@
 
 \newcommand{\insertOfficialDocs}{
      % Bibliographie
-     \subsection{Quellenangaben}
-     \printbibliography[notkeyword={picture},heading=subbibliography,title={Literaturverzeichnis}]
-     \printbibliography[keyword={picture}, heading=subbibliography, title={Abbildungsverzeichnis}]
+     \subsection{\ifnumequal{\semLanguage}{0}{Quellenangaben}{\ifnumequal{\semLanguage}{1}{References}{\ifnumequal{\semLanguage}{2}{Indiquer en référence}{Referencias}}}}
+     \printbibliography[notkeyword={picture},heading=subbibliography,title={\ifnumequal{\semLanguage}{0}{Literaturverzeichnis}{\ifnumequal{\semLanguage}{1}{Literature}{\ifnumequal{\semLanguage}{2}{Littérature}{Literatura}}}}]
+     \printbibliography[keyword={picture}, heading=subbibliography, title={\ifnumequal{\semLanguage}{0}{Bildquellen}{\ifnumequal{\semLanguage}{1}{Images}{\ifnumequal{\semLanguage}{2}{Photos}{Fotos}}}}]
      \newpage
  
- 
+     % Abbildungsverzeichnis
+     \ifnumequal{\figureTable}{1}{
+     \subsection{\ifnumequal{\semLanguage}{0}{Abbildungsverzeichnis}{\ifnumequal{\semLanguage}{1}{List of figures}{\ifnumequal{\semLanguage}{2}{Liste des figures}{Lista de figuras}}}}
+     \renewcommand\listfigurename{}
+     \listoffigures
+     \newpage
+     }{}
+
+     % Tabellenverzeichnis
+    \ifnumequal{\tableTable}{1}{
+    \subsection{\ifnumequal{\semLanguage}{0}{Tabellenverzeichnis}{\ifnumequal{\semLanguage}{1}{List of tables}{\ifnumequal{\semLanguage}{2}{Liste des tableaux}{Lista de tablas}}}}
+    \renewcommand\listtablename{}
+    \listoftables
+    \newpage
+    }{}
+     
      % Eigenständigkeitserklärung
+     \selectlanguage{ngerman}
      \subsection{Eigenständigkeitserklärung}
-     Hiermit erkläre ich, dass ich die vorliegende Arbeit selbständig und ohne fremde Hilfe verfasst und keine anderen als die angegebenen Hilfsmittel verwendet habe. \\
+     \noindent Hiermit erkläre ich, dass ich die vorliegende Arbeit selbständig und ohne fremde Hilfe verfasst und keine anderen als die angegebenen Hilfsmittel verwendet habe. \\
      Insbesondere versichere ich, dass ich alle wörtlichen und alle sinngemäßen Übernahmen aus anderen Werken als solche kenntlich gemacht habe. Auch alle genutzten Internetseiten wurden kenntlich gemacht und sind im Verzeichnis der Internetseiten bzw. im Quellenverzeichnis aufgeführt. \\
-     Ich bin darüber belehrt worden, sofern sich – auch zu einem späteren Zeitpunkt – herausstellen sollte, dass die Seminararbeit oder Teile davon nicht selbständig verfasst wurden, die Hinweise zu Zitaten fehlen oder Teile unverändert aus dem Internet übernommen wurden, die Arbeit auch nachträglich mit der Note ungenügend gewertet wird. \\[1cm]
- 
+     Ich bin darüber belehrt worden, sofern sich –- auch zu einem späteren Zeitpunkt –- herausstellen sollte, dass die Seminararbeit oder Teile davon nicht selbständig verfasst wurden, die Hinweise zu Zitaten fehlen oder Teile unverändert aus dem Internet übernommen wurden, die Arbeit auch nachträglich mit der Note ungenügend gewertet wird. \\[1cm]
+
      \begin{tabular}{@{}p{10cm}p{5cm}@{}}
          \location, den \today & \hrulefill \\
          & \hspace{1.5cm}Unterschrift \\

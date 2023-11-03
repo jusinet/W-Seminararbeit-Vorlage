@@ -1,15 +1,26 @@
 \subsection{Wie benutze ich Bilder?}
-Wenn Sie ein Bild einfügen möchten, nutzen Sie das Konstrukt figure. Beim Konstrukt figure gibt es einige Parameter um dieses anzupassen.
+Wenn Sie ein Bild einfügen möchten, nutzen Sie das Konstrukt figure. Beim Konstrukt figure gibt es einige Parameter, um dieses anzupassen.
 Sollten Sie das Bild stark anpassen wollen, können Sie im Internet einige hilfreiche Ressourcen finden.
-Wenn Sie Text um eine Abbildung herum platzieren möchten, ist möglicherweise ein Bild in das Konstrukt minipage oder das Paket float eine gute Idee.
-Ich wünsche Ihnen viel Erfolg beim formatieren Ihrer Bilder. (Schlimmer als Word wird es nicht!)\\
 \begin{figure}[H]
+    \centering
     \includegraphics[scale=0.5]{beispiel}
-    \caption{Ein Beispielbild aus der WGG-Webseite \autocite{wggwallpaper}}
-    \label{wallpaper}
+    \setcaptioncitation{\citefield{wggwallpaper}{howpublished} \parencite{wggwallpaper}}
+    \caption{Ein Beispielbild aus der WGG-Webseite}
+    \label{fig:wallpaper}
 \end{figure}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.ä
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Die Platzierung von Abbildungen geschieht bei dem figure-Konstrukt zwischen den Absätzen. Sollte eine Abbildng jedoch am Rand der Arbeit stehen und der Text sich um die Abbildung 'wickeln',
+ist das Konstrukt \emph{wrapfigure} zu empfehlen. Ein Beispiel ist hier nebenstehend.
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \begin{center}
+        \includegraphics[scale=0.125]{logo}
+        \setcaptioncitation{\citefield{logo}{howpublished} \parencite{logo}}
+        \caption{Das Logo des WGG Selb}
+    \end{center}
+    \label{fig:logo}
+\end{wrapfigure}
+
+Ferner kann auch auf ein Bild Bezug genommen werden. Siehe Abbildung \ref{fig:wallpaper}
+
+Dokumentation zum wrapfigure-Package ist ebenfalls online zu finden.
+Es kann dabei bestimmt werden, wo die Abbildung platziert werden soll, und welche Breite sie einnehmen darf.
+Abgesehen davon sind die Angaben identisch zu jenen, die bei einer normalen \emph{figure} gemacht werden.

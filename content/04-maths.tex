@@ -2,6 +2,11 @@
     Wir besprechen kurz wie Formeln eingefügt werden können.
     Dies ist eine Formel, die im Textfluss auftaucht $a^{2} + b^{2} = c^{2}$.
     Diese Formel ist isoliert:
-    \begin{center}
-        $x_1,_2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
-    \end{center}
+    \begin{align*}
+            \partial_{x_1} f(x_1,x_2) &= 2x_1{x_2}^2 + 4x_1 - 6x_2 - 3\\
+            \partial_{x_2} f(x_1,x_2) &= 2 x_2 {x_1}^2 - 6x_1 + 2x_2 + 2\\
+            \nabla f &= \begin{pmatrix}
+                2x_1{x_2}^2 + 4x_1 - 6x_2 - 3\\
+                2 x_2 {x_1}^2 - 6x_1 + 2x_2 + 2
+            \end{pmatrix}
+    \end{align*}

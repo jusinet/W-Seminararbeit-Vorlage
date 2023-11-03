@@ -1,3 +1,13 @@
+\subsection{Quellen}
+    Quellen in \LaTeX zu verwalten ist ein Kinderspiel. Die Erweiterung BibLaTeX hilft dabei aus. In den Dateien \begin{verbatim}
+        /src/images.bib
+        /src/sources.bib
+    \end{verbatim}
+    können Quellen nach dem beispielhaften Schema eingetragen werden. Sobald Sie diese Quelle in Ihrer Arbeit zitieren, wird Sie automatisch in die Bibliographie aufgenommen.
+
+    Einen weiteren Vorteil ziehen Sie aus bereits vorgefertigten \emph{.bib}-Dateien. Viele Autoren stellen auf z.B. Google Scholar\footnote{\url{https://scholar.google.com/}} vollständige \emph{.bib}-Dateien zu verfügung.
+    In diesen sind alle Informationen zur zitierten Quelle aufgenommen. So wird ebenfalls sichergestellt, dass alle Infos, die der Autor in einer Zitation erwähnt haben möchte, erwähnt werden.
+
 \subsection{Wie zitiere ich?}
     Es gibt mehrere Arten von Zitaten. Die erste Unterscheidung teilt Zitate in Direkte und Indirekte auf.
     Direkte Zitate werden nach ihrer Länge unterschieden. Es gibt das Kürzezitat. Hier wird der Textfluss nicht unterbrochen und das Zitat schmiegt sich in den Fließtext ein.\\
@@ -20,7 +30,7 @@
     \\
     Es funktioniert in \LaTeX{} so:
     \begin{itemize}
-        \item Schreiben Sie Ihre Quelle in die \texttt{quellen.bib}-Datei
+        \item Schreiben Sie Ihre Quelle in die \texttt{source.bib}-Datei
         \item Zitieren Sie die Quelle im Text mit \begin{verbatim}
             \autocite[vgl.][S. xff.]{quelle}
         \end{verbatim}

@@ -1,0 +1,17 @@
+\subsection{Tabellen}
+Tabellen können in \LaTeX{} über tabulars erzeugt werden. Alternativ gibt es auch viele Packages im Internet, die weitere
+Tabellenfunktionalitäten bereitstellen.\\
+Hier eine Beispieltabelle:\\
+\begin{center}
+    \begin{tabular}{ |c|c|c| } 
+        \hline
+        cell1 & cell2 & cell3 \\ 
+        cell4 & cell5 & cell6 \\ 
+        cell7 & cell8 & cell9 \\ 
+        \hline
+    \end{tabular}
+    \captionof{table}{Eine nette Tabelle}
+    \label{tbl:nicetable}
+\end{center}
+Wenn Sie Tabellen nicht in einem eigenen Verzeichnis führen wollen, können Sie die Tabelle auch in ein figure Konstrukt einbetten.
+Die Tabelle erscheint dann im Abbildungsverzeichnis (sofern vorhanden).

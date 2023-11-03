@@ -22,7 +22,20 @@
 \usepackage{changepage}
 
 % Babel
-\usepackage[ngerman]{babel}
+\ifnum\semLanguage=0
+\def\lang{}
+\else
+    \ifnum\semLanguage=1
+    \def\lang{,english}
+    \else
+        \ifnum\semLanguage=2
+        \def\lang{,french}
+        \else
+        \def\lang{,spanish}
+        \fi
+    \fi
+\fi
+\usepackage[ngerman \lang]{babel}
 
 % Hyperref
 \usepackage{hyperref}
@@ -31,12 +44,13 @@
 \ifnum \citeStyle=0
 \def\stil{numeric}
 \else
-\def\stil{authoryear-ibid}
+\def\stil{authoryear-icomp}
 \fi
 
 % BibLaTeX
 \usepackage[backend=bibtex, style=\stil]{biblatex}
-\addbibresource{./src/quellen.bib}
+\addbibresource{./src/sources.bib}
+\addbibresource{./src/images.bib}
 \usepackage{csquotes}
 
 % Colors
@@ -65,3 +79,20 @@
         \relax
     }
 }
+
+% Captions
+\usepackage{caption}
+\DeclareCaptionFormat{citation}{%
+  \ifx\captioncitation\relax\relax\else
+    \captioncitation\par
+  \fi
+  #1#2#3\par}
+\newcommand*\setcaptioncitation[1]{\def\captioncitation{\textsc{\ifnumequal{\semLanguage}{0}{Quelle:}{\ifnumequal{\semLanguage}{1}{Source:}{\ifnumequal{\semLanguage}{2}{Source:}{Fuente:}}}}~#1}}
+\let\captioncitation\relax
+\captionsetup{format=citation,justification=centering}
+
+% Wrapping figures
+\usepackage{wrapfig}
+
+% Maths
+\usepackage{amsmath}
