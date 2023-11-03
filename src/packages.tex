@@ -59,14 +59,17 @@
 % ToC
 \usepackage{tocloft}
 \ifnumequal{\numericalTOC}{1}{
-    \setlength{\cftsecindent}{0pt}% Remove indent for \section
-    \setlength{\cftsubsecindent}{0pt}% Remove indent for \subsection
-    \setlength{\cftsubsubsecindent}{0pt}% Remove indent
+    \relax
 }{
     \renewcommand{\thesection}{\Alph{section}}
     \renewcommand{\thesubsection}{\Roman{subsection}}
     \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
 }
+\ifnumequal{\indentTOC}{0}{
+    \setlength{\cftsecindent}{0pt}% Remove indent for \section
+    \setlength{\cftsubsecindent}{0pt}% Remove indent for \subsection
+    \setlength{\cftsubsubsecindent}{0pt}% Remove indent
+}{\relax}
 
 % Cite style
 \ifnumequal{\citeStyle}{1}{
